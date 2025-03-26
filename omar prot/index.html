@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omar Abdi | Scholar & Artist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #3a1c0d;
+            --accent: #8b0000;
+            --text: #e0e0e0;
+            --highlight: #d4af37;
+            --parchment: #f5e8c0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Lora', serif;
+            background-color: var(--primary);
+            color: var(--text);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(139, 0, 0, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 20%),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%233a1c0d" stroke-width="0.5"/></svg>');
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to bottom, var(--primary), rgba(26, 26, 26, 0.8));
+            padding: 2rem 0;
+            position: relative;
+            border-bottom: 1px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            color: var(--highlight);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            position: relative;
+        }
+        
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--highlight), var(--accent));
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--text);
+            text-decoration: none;
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        
+        nav ul li a:hover {
+            color: var(--highlight);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--highlight);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to right, rgba(26, 26, 26, 0.9) 0%, rgba(26, 26, 26, 0.7) 100%),
+                url('https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: var(--highlight);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .brand-of-sacrifice {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px;
+            height: 300px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="none" stroke="%238b0000" stroke-width="2"/></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.3;
+            animation: pulse 8s infinite ease-in-out;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.2; transform: translateY(-50%) rotate(0deg); }
+            50% { opacity: 0.5; transform: translateY(-50%) rotate(10deg); }
+            100% { opacity: 0.2; transform: translateY(-50%) rotate(0deg); }
+        }
+        
+        /* About Section */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--highlight);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--highlight), transparent);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+            background-color: rgba(58, 28, 13, 0.3);
+            padding: 2rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--highlight);
+            position: relative;
+        }
+        
+        .about-text::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M20,20 L80,20 L80,80 L20,80 Z" fill="none" stroke="%23d4af37" stroke-width="0.5" stroke-dasharray="5,5"/></svg>');
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+            height: 400px;
+            background-image: url('berr.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(139, 0, 0, 0.2), rgba(58, 28, 13, 0.4));
+        }
+        
+        /* Skills Section */
+        .skills {
+            background-color: var(--secondary);
+            background-image: 
+                linear-gradient(rgba(58, 28, 13, 0.8), rgba(58, 28, 13, 0.8)),
+                url('https://images.unsplash.com/photo-1518655048521-f130df041f66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            position: relative;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .skill-card {
+            background: rgba(26, 26, 26, 0.7);
+            padding: 2rem;
+            border-radius: 5px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 3px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            z-index: 0;
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--highlight);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .skill-card p {
+            color: var(--parchment);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Portfolio Section */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-image {
+            transform: scale(1.1);
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 1.5rem;
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+        
+        .portfolio-overlay h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: var(--primary);
+            background-image: 
+                linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.9)),
+                url('https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(58, 28, 13, 0.7);
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--highlight);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Cinzel', serif;
+            color: var(--highlight);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid var(--accent);
+            color: var(--text);
+            font-family: 'Lora', serif;
+            border-radius: 3px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--highlight);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(to right, var(--accent), var(--highlight));
+            color: var(--primary);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to right, var(--highlight), var(--accent));
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--highlight);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: var(--parchment);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .brand-of-sacrifice {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1.5rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Omar Abdi</div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Scholar & Artist</h1>
+                <p>Exploring the boundaries between science and art, where the precision of mathematics meets the creativity of drawing, and the mysteries of physics intertwine with the complexities of neurology.</p>
+                <a href="#contact" class="submit-btn">Begin Your Journey</a>
+            </div>
+            <div class="brand-of-sacrifice"></div>
+        </div>
+    </section>
+    
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>In the crucible of knowledge and creativity, I forge my path. Like Guts wielding his Dragonslayer, I approach each discipline with relentless determination and precision.</p>
+                    <p>My journey began in the halls of academia, where I studied the fundamental laws that govern our universe through physics and mathematics. Yet, I soon realized that the most profound mysteries lie within the human mind itself, leading me to explore the intricate workings of neurology.</p>
+                    <p>Parallel to my scientific pursuits, I've maintained the soul of an artist. My drawings capture both the beauty and darkness of existence, much like Kentaro Miura's masterful illustrations in Berserk. This duality of left-brain and right-brain thinking allows me to approach problems with unique perspectives.</p>
+                    <p>I believe true understanding comes from the synthesis of seemingly disparate fields. Just as the Brand in Berserk connects two worlds, I seek to bridge the gap between art and science.</p>
+                </div>
+                <div class="about-image"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">∫</div>
+                    <h3>Physics</h3>
+                    <p>Mastery of classical and quantum mechanics, thermodynamics, and electromagnetism. Special interest in astrophysics and the fundamental nature of reality.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">Ψ</div>
+                    <h3>Neurology</h3>
+                    <p>Deep understanding of neural networks, cognitive processes, and the biological basis of consciousness. Research experience in neurodegenerative diseases.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">∑</div>
+                    <h3>Mathematics</h3>
+                    <p>Advanced knowledge in calculus, linear algebra, differential equations, and topology. Particularly skilled in mathematical modeling of complex systems.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">✎</div>
+                    <h3>Drawing</h3>
+                    <p>Traditional and digital illustration with a focus on anatomical accuracy and dramatic composition. Specialize in dark fantasy and scientific illustration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Physics Research" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Quantum Field Theory</h3>
+                        <p>Research on particle interactions at extreme energies</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1575505586569-646b2ca898fc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Neurology Study" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Neural Mapping</h3>
+                        <p>Visualization of cognitive processes in the prefrontal cortex</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Mathematical Model" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Topological Analysis</h3>
+                        <p>Application of algebraic topology to neural networks</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Artwork" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Dark Fantasy Series</h3>
+                        <p>Pen and ink illustrations inspired by Berserk</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Scientific Illustration" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Anatomical Studies</h3>
+                        <p>Detailed drawings combining medical accuracy with artistic flair</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Physics Art" class="portfolio-image">
+                    <div class="portfolio-overlay">
+                        <h3>Cosmic Phenomena</h3>
+                        <p>Artistic interpretations of black holes and spacetime</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-artstation"></i></a>
+            </div>
+            <p class="copyright">© 2023 Omar Abdi. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- Smooth scrolling for anchor links -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <!-- Parallax effect for hero section -->
+    <script>
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>
